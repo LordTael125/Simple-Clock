@@ -55,12 +55,11 @@ Terminal=false
 
 def create_icon():
     print("Creating icon...")
-    # 1x1 red pixel PNG
-    png_data = b'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01\x00\x00\x00\x01\x08\x02\x00\x00\x00\x90wS\xde\x00\x00\x00\x0cIDAT\x08\xd7c\xf8\xcf\xc0\x00\x00\x03\x01\x01\x00\x18\xdd\x8d\xb0\x00\x00\x00\x00IEND\xaeB`\x82'
+    # Copy icon.png from project root
+    source_icon = os.path.join(BUILDS_DIR, "..", "icon.png")
     
     icon_path = os.path.join(APP_DIR, "usr", "share", "icons", "hicolor", "256x256", "apps", "simpleclock.png")
-    with open(icon_path, "wb") as f:
-        f.write(png_data)
+    shutil.copy2(source_icon, icon_path)
         
     # Symlink at root
     link_path = os.path.join(APP_DIR, "simpleclock.png")

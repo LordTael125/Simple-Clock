@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QMenu
 from PyQt5.QtCore import QTimer, QTime, Qt, QPoint, QEvent
-from PyQt5.QtGui import QPainter, QColor, QPolygon, QRegion
+from PyQt5.QtGui import QPainter, QColor, QPolygon, QRegion, QIcon
 import PyQt5.uic
 import os
 
@@ -33,6 +33,11 @@ class ClockWidget(QWidget):
         self.timer.start(1000)  # Update every second
         
         self.setWindowTitle("Analog Clock")
+        
+        # Set Window Icon
+        icon_path = resource_path("icon.png")
+        self.setWindowIcon(QIcon(icon_path))
+        
         self.resize(400, 400)
 
     def resizeEvent(self, event):

@@ -13,6 +13,7 @@ PyInstaller.__main__.run([
     '--onefile',
     '--windowed',
     f'--add-data=../ui/clock.ui{separator}ui',
+    f'--add-data=../icon.png{separator}.',
     '--name=SimpleClock',
     '--clean',
     '--distpath=../builds/dist',
